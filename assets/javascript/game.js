@@ -2,25 +2,54 @@
 // and the user has to guess which letter the app chose. Put the following text on your page: However, the text will be 
 // updated via the script. The actual code goes on the HTML?
 var remainingTurns = 7;
+document.getElementById("remainingTurns").innerHTML = remainingTurns;
 var losses = 0;
+document.getElementById("losses").innerHTML = losses;
 var wins = 0;
+document.getElementById("wins").innerHTML = wins;
 var failedAttempt = [];
+document.getElementById("failedAttempt").innerHTML = failedAttempt;
 
-var stroke = document.getElementById()
+var gameStarted = false;
+var userGuess;
+var golden = 
+
+document.onkeyup = function(e) {
+    if (e.key === "Control") {
+        gameStarted = true;
+        console.log("Started game.")
+        function compTurn(psychicChoices){
+            return psychicChoices[Math.round(Math.random() * 26) + 97
+            ]};
+        Golden = compTurn;
+        }
+
+    if (gameStarted) {
+        userGuess = e.key;
+    } else {
+        alert("Press control to start guessing.");
+    }
+    for (i = e.key; i !== golden; ) {
+        failedAttempt.push (e.key);
+        console.log(e.key);
+        remainingTurns = 'remainingTurns' - 1;
+        console.log(remainingTurns)      
+    }
+    }
+
+// var stroke = document.getElementById()
 // <text>. Guess what letter I'm thinking of
 var psychicChoices = [
     "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"];
 
     // document.onkeydown = function(start) {
-       document.addEvent 
-        if(start){
-            var key = window.event
-        }
-    }
+    //    document.addEvent 
+    //     if(start){
+        //         var key = window.event
+        //     }
+    
 // <text>. Wins: (# of times the user has guessed the letter correctly)
-    document.onkeyup = function(event) {
-        var playerTurn = event.key
-    }
+
 // <text>. Losses: (# of times the user has failed to guess the letter correctly after exhausting all guesses)
 
 // <text>. Guesses Left: (# of guesses left. This will update)
@@ -38,11 +67,11 @@ var psychicChoices = [
 
 
 // set guesses for user.
-for (stroke=0; i<7; i++){
+
 // I think my .onKeyUp goes here to start listening for guesses.
 
-}
-// ***I want the game to officially end once a player has lost three rounds in a row. 
+
+// ***I want the game to officially end once a player has lost three rounds in a row.
 
 
 // 9. When the player loses, increase the Losses counter and restart the game without a page refresh (just like 

@@ -7,14 +7,15 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script defer="defer" src="assets/javascript/game.js"></script>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-center" style="background-color: rgb(0, 0, 0);">
-      <a class="navbar-brand" href="#"><span class="badge badge-dark"><img src="assets/images/mini2dWOPRdpp.jpg"></span></a>
+      <a class="navbar-brand" href="#"><p class="badge badge-dark"><img src="assets/images/mini2dWOPRdpp.jpg"></p></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <p class="navbar-toggler-icon"></p>
       </button>
   
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -54,10 +55,10 @@
                       Beware, all keyboard inputs register as a guess. You will be penalized for pressing a non-alpha coded key. 
                       Should you fail three times in a row your game is over and Joshua wins. Press CTRL to begin.</p>
                     <ul>
-                        <li><strong>Wins:</strong></li>
-                        <li><strong>Losses:</strong></li>
-                        <li><strong>Taken:</strong></li>
-                        <li><strong>Remaining:</strong></li>
+                        <li><strong>Wins:</strong></li> <p id = "wins"></p>
+                        <li><strong>Losses:</strong></li> <p id = "losses"></p>
+                        <li><strong>Taken:</strong></li> <p id = "failedAttempt"></p>
+                        <li><strong>Remaining:</strong></li> <p id = "remainingTurns"></p>
                     </ul>
                     </div>
                 </div>
@@ -86,6 +87,7 @@
       crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"></script>
+      
   </body>
   
   </html>
