@@ -9,43 +9,57 @@ var wins = 0;
 document.getElementById("wins").innerHTML = wins;
 var failedAttempt = [];
 document.getElementById("failedAttempt").innerHTML = failedAttempt;
-
+var golden = (compTurn);
+function compTurn(){
+    return psychicChoices[Math.floor(Math.random() * psychicChoices.length)
+    ]};
 var gameStarted = false;
-var userGuess;
-var golden = 
+var userGuess =
+
 
 document.onkeyup = function(e) {
     if (e.key === "Control" && !gameStarted) {
         gameStarted = true;
         console.log("Started game.");
         remainingTurns = 7;
-        failedAttempt = [];  
-        function compTurn(){
+        document.getElementById("remainingTurns").innerHTML = remainingTurns;
+        failedAttempt = [];
+        document.getElementById("failedAttempt").innerHTML = failedAttempt;  
+        function compTurn(psychicChoices){
             return psychicChoices[Math.floor(Math.random() * psychicChoices.length)
             ]};
-        golden = compTurn();
-        console.log(golden)
+        golden = compTurn(psychicChoices);
+        
+       
     }
-    if (gameStarted) {
-        userGuess = e.key.toLowerCase;
-        if (userGuess === golden) {
+    else if (gameStarted) {
+        userGuess = e.key;
+               console.log(userGuess)
+               if (userGuess == golden) {
             alert("You guessed my letter! Shall we play again? (press 'cntrl')");
             gameStarted = false;
             console.log("Round over: User won");
             wins++;
+            document.getElementById("wins").innerHTML = wins;
+            
         }
-        if (userGuess !== golden) {
+        else if (userGuess != golden) {
             if (remainingTurns >1){
                 remainingTurns--;
+                document.getElementById("remainingTurns").innerHTML = remainingTurns;
                 failedAttempt.push (e.key);
+                document.getElementById("failedAttempt").innerHTML = failedAttempt;
                 console.log(e.key);
                 alert("Sorry, but that guess is incorrect. Please try again")
             }
             else {
                 remainingTurns--;
+                document.getElementById("remainingTurns").innerHTML = remainingTurns;
                 failedAttempt.push (e.key);
+                document.getElementById("failedAttempt").innerHTML = failedAttempt;
                 console.log(e.key);
                 losses++;
+                document.getElementById("losses").innerHTML = losses;
                 gameStarted = false;
                 alert("You have failed to guess my letter in your alloted turns. The correct letter was " + golden + ". Press 'cntrl' to play again.");
             }
@@ -62,7 +76,7 @@ document.onkeyup = function(e) {
 // var stroke = document.getElementById()
 // <text>. Guess what letter I'm thinking of
 var psychicChoices = [
-    "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"];
+    'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm'];
 
     // document.onkeydown = function(start) {
     //    document.addEvent 
