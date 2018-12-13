@@ -15,27 +15,49 @@ var userGuess;
 var golden = 
 
 document.onkeyup = function(e) {
-    if (e.key === "Control") {
+    if (e.key === "Control" && !gameStarted) {
         gameStarted = true;
-        console.log("Started game.")
-        function compTurn(psychicChoices){
-            return psychicChoices[Math.round(Math.random() * 26) + 97
+        console.log("Started game.");
+        remainingTurns = 7;
+        failedAttempt = [];  
+        function compTurn(){
+            return psychicChoices[Math.floor(Math.random() * psychicChoices.length)
             ]};
-        Golden = compTurn;
+        golden = compTurn();
+        console.log(golden)
+    }
+    if (gameStarted) {
+        userGuess = e.key.toLowerCase;
+        if (userGuess === golden) {
+            alert("You guessed my letter! Shall we play again? (press 'cntrl')");
+            gameStarted = false;
+            console.log("Round over: User won");
+            wins++;
+        }
+        if (userGuess !== golden) {
+            if (remainingTurns >1){
+                remainingTurns--;
+                failedAttempt.push (e.key);
+                console.log(e.key);
+                alert("Sorry, but that guess is incorrect. Please try again")
+            }
+            else {
+                remainingTurns--;
+                failedAttempt.push (e.key);
+                console.log(e.key);
+                losses++;
+                gameStarted = false;
+                alert("You have failed to guess my letter in your alloted turns. The correct letter was " + golden + ". Press 'cntrl' to play again.");
+            }
+
         }
 
-    if (gameStarted) {
-        userGuess = e.key;
-    } else {
+    }
+    else {
         alert("Press control to start guessing.");
-    }
-    for (i = e.key; i !== golden; ) {
-        failedAttempt.push (e.key);
-        console.log(e.key);
-        remainingTurns = 'remainingTurns' - 1;
-        console.log(remainingTurns)      
-    }
-    }
+        }
+        }
+    
 
 // var stroke = document.getElementById()
 // <text>. Guess what letter I'm thinking of
